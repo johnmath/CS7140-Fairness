@@ -1,7 +1,9 @@
 # CS7140-Fairness
 
 [Getting Started](#getting-started)
+
 [Training a Classifier](#how-to-train-the-mlp-classifier)
+
 ## Getting Started
 
 First, make sure that you have [PyTorch](https://pytorch.org/get-started/locally/), [NumPy](https://numpy.org/install/), [scikit-learn](https://scikit-learn.org/stable/install.html), and [pandas](https://pandas.pydata.org/docs/getting_started/index.html) installed using a package manager, such as [Anaconda](https://docs.anaconda.com/anaconda/install/index.html) or [pip](https://pip.pypa.io/en/stable/).

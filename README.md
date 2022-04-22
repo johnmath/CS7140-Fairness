@@ -2,14 +2,15 @@
 
 [Getting Started](#getting-started)
 
-[Training a Classifier With PyTorch](#how-to-train-an-mlp-classifier-(pytorch))
-[Training a Classifier With scikit-learn](#how-to-train-an-mlp-classifier-(scikit-learn))
+[Training a Classifier With PyTorch](#how-to-train-an-mlp-classifier-using-pytorch)
+
+[Training a Classifier With scikit-learn](#how-to-train-an-mlp-classifier-using-scikit)
 
 ## Getting Started
 
 First, make sure that you have [PyTorch](https://pytorch.org/get-started/locally/), [NumPy](https://numpy.org/install/), [scikit-learn](https://scikit-learn.org/stable/install.html), and [pandas](https://pandas.pydata.org/docs/getting_started/index.html) installed using a package manager, such as [Anaconda](https://docs.anaconda.com/anaconda/install/index.html) or [pip](https://pip.pypa.io/en/stable/).
 
-## How to Train an MLP Classifier (scikit-learn)
+## How to Train an MLP Classifier using scikit
 
 In this example, we will be training a fully connected neural network (or MLP) on the UCI Adults dataset. This dataset has several categorical and continuous attributes that we will use to determine whether an individual's income is above 50K (1) or below 50K (0). 
 
@@ -42,7 +43,7 @@ trained_model = model.fit(X=df_train.loc[:, df_train.columns != "output"],
 ```
 
 
-#### Getting Y_pred, Y_true, and A as vectors
+### Getting Y_pred, Y_true, and A as vectors
 
 To compute our fairness metrics, we need the model's binary predictions, the ground truth labels, and the sensitive class. To do this, we can use the `predict` function that is built into the scikit-learn model.
 
@@ -63,7 +64,7 @@ A = np.array(df_test["race_ Black"])
 
 Note, the features in the one-hot version of adults have columns that are formatted as `<category>_ <attribute>`.
 
-## How to Train an MLP Classifier (PyTorch)
+## How to Train an MLP Classifier using PyTorch
 
 In this example, we will be training a fully connected neural network (or MLP) on the UCI Adults dataset. This dataset has several categorical and continuous attributes that we will use to determine whether an individual's income is above 50K (1) or below 50K (0). 
 

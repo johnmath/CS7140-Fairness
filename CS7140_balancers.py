@@ -498,7 +498,7 @@ class BinaryBalancer:
         
         plt.show()
         
-    def summary(self, org=False, adj=False):
+    def summary(self, org=False, adj=False, return_stats=False):
         """Prints a summary with FPRs and TPRs for each group.
         
         Parameters:
@@ -555,7 +555,6 @@ class BinaryBalancer:
         print('\n')
         
         
-        
         #LOSS
         org_loss.append(1 - self.overall_rates.acc)
         adj_loss.append(1 - CS7140_tools.CS_CLFRates(self.y, self.y_adj).acc)
@@ -580,8 +579,13 @@ class BinaryBalancer:
         plt.legend(loc='lower right')
         plt.show()
         
-            
-            
+        if return_stats:
+            return calibration, loss
+    def get_adjusted_predictions(self):
+        try:
+            return self.y_adj
+        except AttributeError:
+            print("You must run .adjust() before adjusted predictions are available")
             
             
             

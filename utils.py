@@ -51,20 +51,22 @@ class DataUtils:
     def load_adults(root="Data/", test=0.25, use_torch_dataset=True):
         """Cleans and loads UCI Adults dataset"""
 
-        column_names = ["age",
-                    "workclass", 
-                    "fnlwgt", 
-                    "education", 
-                    "education-num", 
-                    "marital-status", 
-                    "occupation", 
-                    "relationship", 
-                    "race", 
-                    "sex", 
-                    "capital-gain", 
-                    "capital-loss", 
-                    "hours-per-week", 
-                    "native-country"]
+        column_names = [
+            "age",
+            "workclass", 
+            "fnlwgt", 
+            "education", 
+            "education-num", 
+            "marital-status", 
+            "occupation", 
+            "relationship", 
+            "race", 
+            "sex", 
+            "capital-gain", 
+            "capital-loss", 
+            "hours-per-week", 
+            "native-country"
+        ]
 
         uncleaned_df = pd.read_csv("Data/adult.data", header=None)
 
@@ -74,21 +76,25 @@ class DataUtils:
         uncleaned_df = uncleaned_df.rename(columns=mapping)
 
         # Columns with categorical data
-        cat_columns = ["workclass", 
-                    "education", 
-                    "marital-status", 
-                    "occupation", 
-                    "relationship", 
-                    "race", 
-                    "sex",  
-                    "native-country"]
+        cat_columns = [
+            "workclass", 
+            "education", 
+            "marital-status", 
+            "occupation", 
+            "relationship", 
+            "race", 
+            "sex",  
+            "native-country"
+        ]
 
-        cont_columns = ["age",
-                        "fnlwgt",
-                        "education-num",
-                        "capital-gain",
-                        "capital-loss",
-                        "hours-per-week"]
+        cont_columns = [
+            "age",
+            "fnlwgt",
+            "education-num",
+            "capital-gain",
+            "capital-loss",
+            "hours-per-week"
+        ]
 
         dummy_tables = [pd.get_dummies(uncleaned_df[column], prefix=column) for column in cat_columns]
         dummy_tables.append(uncleaned_df.drop(labels=cat_columns, axis=1))
